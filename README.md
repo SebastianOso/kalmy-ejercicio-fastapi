@@ -10,6 +10,7 @@ Una API REST profesional y completamente funcional construida con **FastAPI**, *
 
 ## Index
 
+- [Buenas Prácticas de Git ](#buenas-prácticas-de-git)
 - [Características](#características)
 - [Requisitos Previos](#requisitos-previos)
 - [Instalación](#instalación)
@@ -19,6 +20,40 @@ Una API REST profesional y completamente funcional construida con **FastAPI**, *
 - [API Endpoints](#api-endpoints)
 - [Testing](#testing)
 - [Paginación](#paginación)
+
+---
+
+## Buenas Prácticas de Git
+
+Durante el desarrollo del proyecto también se siguieron buenas prácticas de control de versiones para mantener un flujo de trabajo ordenado y profesional:
+
+### Estrategia de Ramas
+
+Se implementó una estrategia basada en múltiples ramas:
+
+- `main` → Contiene el código estable listo para producción.
+- `develop` → Rama de integración para nuevas funcionalidades.
+- `feat/*` → Nuevas funcionalidades desarrolladas a partir de `develop`.
+
+Cada nueva feature fue creada desde `develop` y posteriormente integrada mediante Pull Request.
+
+### Conventional Commits
+
+Se siguió el estándar de **Conventional Commits** para mantener un historial de cambios claro y semántico.  
+Ejemplos:
+
+- `feat: agregar endpoint para crear items`
+- `fix: corregir validación de precio`
+- `docs: actualizar README`
+- `test: agregar tests para paginación`
+
+Esto permite un historial más legible y facilita el versionado semántico.
+
+### Pull Requests
+
+- Todas las integraciones se realizaron mediante **Pull Requests**.
+- Se revisaron los cambios antes de hacer merge.
+- Se mantuvo un flujo de trabajo estructurado y profesional.
 
 ---
 
@@ -366,22 +401,6 @@ GET /items/?page=2&size=20
 
 ---
 
-### Railway Deployment
-
-El proyecto incluye configuración para Railway en `railway.json`:
-
-```json
-{
-  "build": {
-    "builder": "NIXPACKS"
-  },
-  "deploy": {
-    "startCommand": "uvicorn app:app --host 0.0.0.0 --port $PORT",
-    "restartPolicyType": "ON_FAILURE"
-  }
-}
-```
-
 ---
 ## Documentación Interactiva
 
@@ -391,3 +410,4 @@ Una vez que la API esté corriendo:
 - **ReDoc**: [http://localhost:8000/redoc](http://localhost:8000/redoc)
 
 Todos los endpoints están documentados con descripciones y ejemplos.
+
