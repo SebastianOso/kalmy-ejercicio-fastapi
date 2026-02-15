@@ -6,6 +6,8 @@ Una API REST profesional y completamente funcional construida con **FastAPI**, *
 
 **Despliegue usando Railway**: [https://kalmy-ejercicio-fastapi-production.up.railway.app/docs](https://kalmy-ejercicio-fastapi-production.up.railway.app/docs)
 
+Nota: Si se prueba la API desplegada en Railway, puede aparecer un error en el primer intento. Esto sucede porque en el plan gratuito la instancia entra en modo “sleep” cuando no se utiliza por un tiempo. Al recibir la primera petición, el servicio se reactiva automáticamente y, después de unos segundos, las siguientes peticiones funcionan sin ningún problema.
+
 ---
 
 ## Index
