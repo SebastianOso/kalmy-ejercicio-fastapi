@@ -27,7 +27,7 @@ def crear_item(item: ItemSchema, db: Session = Depends(get_db)):
         name = item.name,
         description= item.description,
         price = item.price,
-        available = item.available if item is not None else True
+        available = item.available if item.available is not None else True
     )
 
     db.add(nuevo_item)
@@ -44,7 +44,7 @@ def obtener_item(item_id: int, db: Session = Depends(get_db)):
 
     item = db.query(ItemModel).filter(ItemModel.id == item_id).first()
     
-    # 
+    # Validación si no encuentra el item individual
     if not item:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
