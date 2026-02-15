@@ -145,27 +145,23 @@ kalmy-ejercicio-fastapi/
 
 ## Decisiones Tecnológicas
 
-### 2. **SQLAlchemy 2.0+**
-   -        
-   - ✅ **Ventajas**: ORM poderoso, queries type-safe, soporte para migraciones, abstracción de BD
-   - **Por qué**: Permite cambiar fácilmente de SQLite a PostgreSQL/MySQL en el futuro
+### 1. **SQLAlchemy 2.0+**
+   - Se uso un ORM, que es SQLAlchemy, ya que de esta forma puedo seguir trabajando con código de python, en este caso objetos, para crear las tablas con las que se va a estar trabajando, de igual manera en vez de tener que escribir queries de SQL sigo utilizando python y con su correcto uso podemos evitar inyección de SQL
+   - También sirve si queremos migrar la base de datos a otra SQL como PostgreSQL simplemente se tienen que cambiar la configuración de la conexión en la base de datos 
 
-### 3. **SQLite**
-   - ✅ **Ventajas**: Sin configuración, perfecto para desarrollo/pruebas, se almacena en un archivo
-   - ⚠️ **Limitación**: No recomendado para aplicaciones con mucho tráfico concurrente
-   - **Por qué**: Simplicidad para ejercicio, pero el diseño permite migrar a PostgreSQL sin cambios
+### 2. **SQLite**
+   - Se opto por usar SQLite en vez de cualquier otra base de datos, por lo simple que es, no se tiene que levantar un servidor para usarla, es un simple archivo
+   - Funciona bien para este tipo de ejercicios pero no es recomendada para aplicaciones con tráfico más concurrente
 
-### 4. **Pydantic v2**
-   - ✅ **Ventajas**: Validación automática, serialización de modelos, mejor rendimiento
-   - **Por qué**: Integración perfecta con FastAPI para request/response validation
+### 3. **Pydantic v2**
+   - Se uso un Schema de Pydantic para la serialización de modelos y nos hace la vida más fácil para la validación de request o response
 
-### 5. **Pytest**
-   - ✅ **Ventajas**: Framework de testing flexible, fixtures potentes, cobertura de código
-   - **Por qué**: Standard de la industria en Python, fácil de usar y escalar
+### 4. **Pytest**
+   - Se uso el Framework de testing de pytest, ya que es fácil de usar y es utilizado en la industria
 
-### 6. **Railway** (Deployment)
-   - ✅ **Ventajas**: Deployment sencillo desde GitHub, variables de entorno automáticas, HTTPS incluido
-   - **Por qué**: Developer-friendly, no requiere configuración compleja de infraestructura
+### 5. **Railway** (Deployment)
+   - Para el despliegue de la API se uso Railway, ya que puedes desplegar tus proyectos sin tener que hacer configuraciones complejas, simplemente escoges tu repo de GitHUb y lo subes
+   - A diferencia de AWS en la cual tendrías que configurar varias cosas, como la instalación tanto instalar python, entre otras cosas
 
 ---
 
