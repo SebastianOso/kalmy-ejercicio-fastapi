@@ -35,6 +35,29 @@ def crear_item(item: ItemSchema, db: Session = Depends(get_db)):
     db.refresh(nuevo_item)
     return nuevo_item
 
+@router.get("/")
+def listar_items(
+    page: int = Query(1, ge=1, description="Número de página"),
+    size: int = Query(10, ge=1, le=100, description="Items por página"),
+    db: Session = Depends(get_db)
+):
+    """
+    Lista todos los items con páginación personalizada
+    """
+    query = db.query(ItemModel)
+
+    total = query.count()
+    offset = (page - 1) * size
+    items = query.offset(offset).limit(size).all()
+    pages = math.ceil(total / size) if total > 0 else 0
+
+    return {
+        "items": [ItemSchema.model_validate(item) for item in items],
+        "total": total,
+        "page": page,
+        "size": size,
+        "pages": pages
+    }    
 
 @router.get("/{item_id}", response_model=ItemSchema)
 def obtener_item(item_id: int, db: Session = Depends(get_db)):
