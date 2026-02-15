@@ -83,3 +83,20 @@ def actualizar_item(
     db.commit()
     db.refresh(item)
     return item
+
+@router.delete("/{item_id}", status_code=status.HTTP_204_NO_CONTENT)
+def eliminar_item(item_id: int, db: Session = Depends(get_db)):
+    """
+    Elimina un item dependiendo del ID
+    """
+
+    item = db.query(ItemModel).filter(ItemModel.id == item_id).first()
+    if not item:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Item con ID {item_id} no encontrado"
+        )
+    
+    db.delete(item)
+    db.commit()
+    return None
