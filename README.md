@@ -2,6 +2,8 @@
 
 Una API REST profesional y completamente funcional construida con **FastAPI**, **SQLAlchemy** y **SQLite**. Incluye CRUD completo, paginación, tests automatizados. 
 
+**Video Explicando API**: [https://youtu.be/H4YX-dnE90Q](https://youtu.be/H4YX-dnE90Q)
+
 **Documentación interactiva**: [http://localhost:8000/docs](http://localhost:8000/docs) (una vez que esté corriendo)
 
 **Despliegue usando Railway**: [https://kalmy-ejercicio-fastapi-production.up.railway.app/docs](https://kalmy-ejercicio-fastapi-production.up.railway.app/docs)
