@@ -201,6 +201,7 @@ kalmy-ejercicio-fastapi/
 ### 5. **Railway** (Deployment)
    - Para el despliegue de la API se uso Railway, ya que puedes desplegar tus proyectos sin tener que hacer configuraciones complejas, simplemente escoges tu repo de GitHUb y lo subes
    - A diferencia de AWS en la cual tendrías que configurar varias cosas, como la instalación tanto instalar python, entre otras cosas
+   - Cada push al repositorio dispara automáticamente un nuevo deployment (Continuous Deployment).
 
 ---
 
